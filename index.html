@@ -3,71 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Control Bodega — Gestión de inventario</title>
+  <title>Control Bodega — Gestión de inventario para bodegas</title>
   <meta name="description" content="App de administración de inventario para bodegas. Precios en Bs/USD con tasa BCV, escáner de códigos de barras y backups en la nube." />
+  <meta name="theme-color" content="#0A4C4C" />
+  <meta property="og:title" content="Control Bodega" />
+  <meta property="og:description" content="Administra tu bodega y calcula precios en Bs/USD con la tasa BCV." />
+  <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="assets/icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
 
-  <header class="nav">
+  <!-- NAVBAR -->
+  <header class="nav" id="nav">
     <div class="container nav-inner">
-      <div class="brand">
+      <a href="#" class="brand">
         <img src="assets/icon.png" alt="Logo Control Bodega" class="brand-logo" />
-        <span class="brand-name">Control Bodega</span>
-      </div>
-      <nav class="nav-links">
+        <span class="brand-name">Control<span>Bodega</span></span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Principal">
         <a href="#caracteristicas">Características</a>
         <a href="#descargas">Descargas</a>
         <a href="#instalacion">Instalación</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#descargas" class="nav-cta">Descargar</a>
       </nav>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
     <section class="hero">
+      <span class="hero-glow hero-glow-1" aria-hidden="true"></span>
+      <span class="hero-glow hero-glow-2" aria-hidden="true"></span>
       <div class="container hero-inner">
-        <img src="assets/icon.png" alt="Logo Control Bodega" class="hero-logo" />
-        <h1>Control Bodega</h1>
-        <p class="hero-sub">
-          Administración de inventario para bodegas. Calcula tus precios en
-          Bs/USD con la tasa BCV, escanea códigos de barras y sincroniza tus
-          datos en la nube.
-        </p>
-        <div class="hero-actions">
-          <a href="#descargas" class="btn btn-primary">Descargar APK</a>
-          <a href="#caracteristicas" class="btn btn-ghost">Ver características</a>
+        <div class="hero-logo-wrap">
+          <img src="assets/icon.png" alt="Logo Control Bodega" class="hero-logo" />
         </div>
-        <p class="hero-badge">Versión estable: <span id="latest-version">…</span></p>
+
+        <p class="hero-kicker">
+          <span class="pulse-dot"></span>
+          Disponible para Android
+        </p>
+
+        <h1>Tu bodega, bajo control</h1>
+
+        <p class="hero-sub">
+          Inventario, precios en Bs/USD con la tasa BCV, escáner de códigos de
+          barras y backups en la nube. Todo en una sola app.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#descargas" class="btn btn-lg btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar APK
+          </a>
+          <a href="#caracteristicas" class="btn btn-lg btn-ghost">Ver características</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong id="latest-version">…</strong>
+            <span>Versión estable</span>
+          </div>
+          <div class="stat">
+            <strong>Android 7+</strong>
+            <span>Compatible</span>
+          </div>
+          <div class="stat">
+            <strong>Sin costo</strong>
+            <span>Período de prueba</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- CARACTERÍSTICAS -->
     <section id="caracteristicas" class="section">
       <div class="container">
-        <h2 class="section-title">Características</h2>
+        <p class="kicker reveal">Características</p>
+        <h2 class="section-title reveal">Todo lo que tu bodega necesita</h2>
+        <p class="section-sub reveal">Diseñada para el mercado venezolano, con tareas diarias en un solo lugar.</p>
+
         <div class="features">
-          <div class="feature">
-            <div class="feature-icon">🧾</div>
+          <article class="feature reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.27l9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/></svg>
+            </div>
             <h3>Inventario completo</h3>
-            <p>Registra productos, unidades por bulto, stock y cálculo automático de precios de venta.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">💱</div>
+            <p>Registra productos, unidades por bulto, stock y cálculo automático del precio de venta.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+            </div>
             <h3>Precios en Bs/USD</h3>
-            <p>Precios en bolívares y dólares según la tasa BCV, con ganancia configurable por producto.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">📷</div>
+            <p>Calcula ventas en bolívares y dólares según la tasa BCV, con ganancia configurable por producto.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8"/><path d="M11 8v8"/><path d="M15 8v4"/></svg>
+            </div>
             <h3>Escáner de códigos</h3>
             <p>Agrega y busca productos escaneando el código de barras directamente con la cámara.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">☁️</div>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="m9 14 2 2 4-4"/></svg>
+            </div>
             <h3>Backups en la nube</h3>
-            <p>Sincroniza tu inventario con Firestore y recupéralo desde cualquier dispositivo.</p>
-          </div>
+            <p>Sincroniza el inventario con Firestore y recupéralo desde cualquier dispositivo y en cualquier momento.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -75,14 +136,15 @@
     <!-- DESCARGAS / RELEASES -->
     <section id="descargas" class="section section-alt">
       <div class="container">
-        <h2 class="section-title">Descargas</h2>
-        <p class="section-sub">Última versión disponible para Android.</p>
+        <p class="kicker reveal">Descargas</p>
+        <h2 class="section-title reveal">Instala en tu teléfono</h2>
+        <p class="section-sub reveal">Descarga la última versión y mantenla actualizada.</p>
 
-        <div class="arch-leyenda">
-          <span class="chip chip-v8a">v8a &nbsp;·&nbsp; 64 bits</span>
-          <span class="chip chip-v7a">v7a &nbsp;·&nbsp; 32 bits</span>
+        <div class="arch-leyenda reveal">
+          <span class="chip chip-v8a">v8a · 64 bits</span>
+          <span class="chip chip-v7a">v7a · 32 bits</span>
         </div>
-        <p class="recom-note">Si al instalar <strong>v8a</strong> aparece un error, usa la versión <strong>v7a</strong> (32 bits).</p>
+        <p class="recom-note reveal">Si al instalar <strong>v8a</strong> aparece un error, usa la versión <strong>v7a</strong> (32 bits).</p>
 
         <div id="releases" class="releases">
           <div class="loading">Cargando versiones…</div>
@@ -93,22 +155,110 @@
     <!-- INSTALACIÓN -->
     <section id="instalacion" class="section">
       <div class="container">
-        <h2 class="section-title">¿Cómo instalar?</h2>
-        <ol class="steps">
-          <li><strong>Descarga</strong> el APK de la última versión en la sección Descargas.</li>
-          <li>En tu teléfono, abre el archivo <code>.apk</code> descargado.</li>
-          <li>Si tu navegador lo pide, <strong>permite instalar aplicaciones de origen desconocido</strong> para el navegador.</li>
-          <li>Acepta las advertencias de Android y completa la instalación.</li>
-        </ol>
+        <p class="kicker reveal">Instalación</p>
+        <h2 class="section-title reveal">Listo en 4 pasos</h2>
+        <p class="section-sub reveal">Confirma el permiso de instalación solo la primera vez.</p>
+
+        <div class="steps-grid">
+          <div class="step reveal">
+            <span class="step-num">1</span>
+            <h3>Descarga el APK</h3>
+            <p>Elige la versión <strong>v8a</strong> (o v7a si falla) en la sección Descargas.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">2</span>
+            <h3>Abre el archivo</h3>
+            <p>Toca el <code>.apk</code> descargado desde la barra de notificaciones o la carpeta Descargas.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">3</span>
+            <h3>Permite la instalación</h3>
+            <p>Autoriza <strong>fuentes desconocidas</strong> cuando el sistema te lo pida.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">4</span>
+            <h3>¡Listo!</h3>
+            <p>Acepta las advertencias de Android y abre Control Bodega desde tu menú de apps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section-alt">
+      <div class="container container-narrow">
+        <p class="kicker reveal">Preguntas frecuentes</p>
+        <h2 class="section-title reveal">Resolvemos tus dudas</h2>
+
+        <div class="faq">
+          <details class="faq-item reveal">
+            <summary>¿Qué versión descargo, v8a o v7a?</summary>
+            <p>Descarga <strong>v8a</strong> (64 bits), que es la versión para teléfonos actuales. Si al instalarla el sistema muestra un error, usa la versión <strong>v7a</strong> (32 bits), compatible con teléfonos de gama baja o con Android de 32 bits.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿La app funciona sin internet?</summary>
+            <p>Sí. El inventario se guarda en la memoria del teléfono y funciona sin conexión. El internet se usa para sincronizar backups, actualizar la tasa BCV y recibir notificaciones.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Dónde se guarda mi información?</summary>
+            <p>Tus productos se almacenan de forma local y además puedes subirlos a la nube (Firestore) como respaldo. Nadie más tiene acceso a tu cuenta.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Cómo me entero de las nuevas versiones?</summary>
+            <p>La app verifica automáticamente si hay una versión nueva al abrirla y te avisa con un recordatorio de actualización y su lista de cambios.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <span class="cta-glow" aria-hidden="true"></span>
+          <h2>Pon tu bodega bajo control</h2>
+          <p>Descarga la última versión y organiza tu inventario desde hoy.</p>
+          <a href="#descargas" class="btn btn-lg btn-light">Descargar ahora</a>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <p>© 2026 Control Bodega · Hecho con ❤️ para bodegueros</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="assets/icon.png" alt="Logo Control Bodega" class="brand-logo" />
+          <span class="brand-name">Control<span>Bodega</span></span>
+        </div>
+        <p>Gestión de inventario para bodegas del mercado venezolano. Precios en Bs/USD y sincronización en la nube.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>App</h4>
+        <a href="#caracteristicas">Características</a>
+        <a href="#descargas">Descargas</a>
+        <a href="#instalacion">Instalación</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="mailto:eliellugo12@gmail.com">Contacto</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Control Bodega · Hecho con dedicación para bodegueros</p>
+      </div>
     </div>
   </footer>
+
+  <button class="back-top" id="back-top" type="button" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="assets/config.js"></script>
   <script src="assets/script.js"></script>
