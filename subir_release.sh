@@ -19,7 +19,7 @@ NOTES="${2:-}"
 
 if [[ -z "$RELEASE_REPO" ]]; then
   echo "Uso: $0 <usuario/repo> \"<notas del release>\""
-  echo "Ejemplo: $0 SerenFire-03/ControlBodega-Releases \"v1.0.0: correcciones y mejoras\""
+  echo "Ejemplo: $0 SerenFire-03/ControlBodega-releases \"v1.0.0: correcciones y mejoras\""
   exit 1
 fi
 

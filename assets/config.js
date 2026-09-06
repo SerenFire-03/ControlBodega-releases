@@ -6,7 +6,7 @@
 window.CONFIG = {
   // Repositorio donde se publican los releases (APK).
   // Formato: "usuario/repo"
-  repo: "SerenFire-03/ControlBodega-Releases",
+  repo: "SerenFire-03/ControlBodega-releases",
 
   // Nombre de la aplicación
   appName: "Control Bodega",
