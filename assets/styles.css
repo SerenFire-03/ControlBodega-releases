@@ -70,6 +70,7 @@ body {
   width: 34px;
   height: 34px;
   object-fit: contain;
+  border-radius: 8px;
 }
 
 .brand-name {
@@ -103,7 +104,8 @@ body {
   height: 96px;
   object-fit: contain;
   margin-bottom: 16px;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+  border-radius: 22px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .hero h1 {
@@ -417,6 +419,10 @@ body {
   margin-top: 14px;
   display: grid;
   gap: 10px;
+}
+
+.older-releases[hidden] {
+  display: none;
 }
 
 .release-old {

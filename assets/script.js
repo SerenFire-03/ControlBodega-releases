@@ -190,11 +190,11 @@ async function cargarReleases() {
       anteriores.forEach((release) => box.appendChild(crearFilaAnterior(release)));
 
       toggle.addEventListener("click", () => {
-        const abierto = !box.hidden;
-        box.hidden = abierto;
-        toggle.textContent = abierto
-          ? `▾ Versiones anteriores (${anteriores.length})`
-          : `▴ Versiones anteriores (${anteriores.length})`;
+        const estaOculta = box.hidden;
+        box.hidden = !estaOculta;
+        toggle.textContent = estaOculta
+          ? `▴ Versiones anteriores (${anteriores.length})`
+          : `▾ Versiones anteriores (${anteriores.length})`;
       });
 
       cont.appendChild(toggle);
