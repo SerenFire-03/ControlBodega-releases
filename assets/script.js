@@ -1,6 +1,7 @@
 /* ============================================================
    Control Bodega — Script de releases
-   Carga las versiones publicadas desde la API de GitHub.
+   Muestra la última versión destacada con botones v8a/v7a y
+   las anteriores plegadas. Carga datos desde la API de GitHub.
    ============================================================ */
 
 const RELEASES_URL = `https://api.github.com/repos/${window.CONFIG.repo}/releases`;
@@ -17,37 +18,67 @@ function formatearFecha(iso) {
 
 function formatearBytes(bytes) {
   if (!bytes || isNaN(bytes)) return "";
-  if (bytes < 1024 * 1024) {
-    return `${(bytes / 1024).toFixed(0)} KB`;
-  }
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
-function crearTarjeta(release, esUltima) {
+function esApk(name) {
+  return (name || "").toLowerCase().endsWith(".apk");
+}
+
+// Detecta si el APK es para Android nuevo (v8a) o viejito (v7a)
+function detectarArquitectura(name) {
+  const n = (name || "").toLowerCase();
+  if (n.includes("arm64-v8a"))
+    return { clave: "v8a", orden: 1, label: "v8a", detalle: "Android nuevo · 64-bit" };
+  if (n.includes("armeabi-v7a"))
+    return { clave: "v7a", orden: 2, label: "v7a", detalle: "Android viejito · 32-bit" };
+  if (n.includes("x86_64"))
+    return { clave: "x86_64", orden: 3, label: "x86_64", detalle: "Emulador / computadora" };
+  return { clave: "universal", orden: 4, label: "Universal", detalle: "Cualquier Android" };
+}
+
+function crearBotonDescarga(asset) {
+  const arq = detectarArquitectura(asset.name);
+  const btn = document.createElement("a");
+  btn.className = `asset-link arq-${arq.clave}`;
+  btn.href = asset.browser_download_url;
+  btn.target = "_blank";
+  btn.rel = "noopener";
+  btn.innerHTML =
+    `<span class="arq-label">${arq.label}</span>` +
+    `<span class="arq-detail">${arq.detalle}</span>` +
+    `<span class="arq-size">${formatearBytes(asset.size)}</span>`;
+  return btn;
+}
+
+function apksOrdenados(release) {
+  return (release.assets || [])
+    .filter((a) => esApk(a.name))
+    .map((asset) => ({ asset, arq: detectarArquitectura(asset.name) }))
+    .sort((a, b) => a.arq.orden - b.arq.orden || a.asset.name.localeCompare(b.asset.name));
+}
+
+// Tarjeta grande para la ÚLTIMA versión
+function crearTarjetaUltima(release) {
   const el = document.createElement("div");
-  el.className = "release";
+  el.className = "release release-latest-box";
 
   const head = document.createElement("div");
   head.className = "release-head";
-
   const tag = document.createElement("span");
   tag.className = "release-tag";
-  tag.textContent = release.tag_name || "Release";
+  tag.textContent = release.tag_name || "Última versión";
+  const badge = document.createElement("span");
+  badge.className = "release-latest";
+  badge.textContent = "Última";
+  head.append(tag, badge);
+  el.appendChild(head);
 
-  head.appendChild(tag);
-  if (esUltima) {
-    const badge = document.createElement("span");
-    badge.className = "release-latest";
-    badge.textContent = "Última";
-    head.appendChild(badge);
-  }
-
-  const date = document.createElement("span");
+  const date = document.createElement("div");
   date.className = "release-date";
   date.textContent = formatearFecha(release.published_at);
-  head.appendChild(date);
-
-  el.appendChild(head);
+  el.appendChild(date);
 
   if (release.body) {
     const notes = document.createElement("div");
@@ -56,33 +87,58 @@ function crearTarjeta(release, esUltima) {
     el.appendChild(notes);
   }
 
-  const assets = (release.assets || []).filter((a) =>
-    a.name.toLowerCase().endsWith(".apk")
-  );
-
-  if (assets.length > 0) {
+  const apks = apksOrdenados(release);
+  if (apks.length) {
     const box = document.createElement("div");
-    box.className = "release-assets";
-    assets.forEach((asset) => {
-      const link = document.createElement("a");
-      link.className = "asset-link";
-      link.href = asset.browser_download_url;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.innerHTML = `⬇ ${
-        asset.name
-      } <span class="asset-size">${formatearBytes(asset.size)}</span>`;
-      box.appendChild(link);
-    });
+    box.className = "release-assets latest-assets";
+    apks.forEach(({ asset }) => box.appendChild(crearBotonDescarga(asset)));
     el.appendChild(box);
   } else {
-    const noAsset = document.createElement("div");
-    noAsset.className = "no-releases";
-    noAsset.textContent = "Esta versión no tiene archivo APK adjunto.";
-    el.appendChild(noAsset);
+    const no = document.createElement("div");
+    no.className = "no-releases";
+    no.textContent = "Esta versión no tiene APK adjunto.";
+    el.appendChild(no);
   }
 
   return el;
+}
+
+// Fila compacta para VERSIONES ANTERIORES
+function crearFilaAnterior(release) {
+  const fila = document.createElement("div");
+  fila.className = "release-old";
+
+  const info = document.createElement("div");
+  info.className = "release-old-info";
+  const tag = document.createElement("span");
+  tag.className = "release-old-tag";
+  tag.textContent = release.tag_name || "Release";
+  const fecha = document.createElement("span");
+  fecha.className = "release-date";
+  fecha.textContent = formatearFecha(release.published_at);
+  info.append(tag, fecha);
+  fila.appendChild(info);
+
+  const links = document.createElement("div");
+  links.className = "release-old-links";
+  const apks = apksOrdenados(release);
+  if (apks.length) {
+    apks.forEach(({ asset, arq }) => {
+      const a = document.createElement("a");
+      a.className = `mini-link arq-${arq.clave}`;
+      a.href = asset.browser_download_url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = `${arq.label} · ${formatearBytes(asset.size)}`;
+      links.appendChild(a);
+    });
+  } else {
+    links.textContent = "Sin APK";
+    links.className += " muted";
+  }
+  fila.appendChild(links);
+
+  return fila;
 }
 
 async function cargarReleases() {
@@ -94,11 +150,8 @@ async function cargarReleases() {
       headers: { Accept: "application/vnd.github+json" },
     });
     if (!res.ok) {
-      if (res.status === 404) {
-        throw new Error(
-          "No se encontró el repositorio. Revisa assets/config.js."
-        );
-      }
+      if (res.status === 404)
+        throw new Error("No se encontró el repositorio. Revisa assets/config.js.");
       throw new Error(`Error al leer GitHub (${res.status}).`);
     }
 
@@ -108,8 +161,7 @@ async function cargarReleases() {
     if (!releases.length) {
       const msg = document.createElement("div");
       msg.className = "no-releases";
-      msg.textContent =
-        "Aún no hay versiones publicadas. ¡Pronto habrá novedades!";
+      msg.textContent = "Aún no hay versiones publicadas. ¡Pronto habrá novedades!";
       cont.appendChild(msg);
       const span = document.getElementById("latest-version");
       if (span) span.textContent = "próximamente";
@@ -118,12 +170,36 @@ async function cargarReleases() {
 
     const limit = window.CONFIG.maxReleases || 10;
     const mostrar = releases.slice(0, limit);
-    mostrar.forEach((release, i) => {
-      cont.appendChild(crearTarjeta(release, i === 0));
-    });
+
+    cont.appendChild(crearTarjetaUltima(mostrar[0]));
 
     const span = document.getElementById("latest-version");
-    if (span) span.textContent = releases[0].tag_name;
+    if (span) span.textContent = mostrar[0].tag_name;
+
+    // Versiones anteriores → plegadas detrás de un botón pequeño
+    const anteriores = mostrar.slice(1);
+    if (anteriores.length) {
+      const toggle = document.createElement("button");
+      toggle.className = "btn-older";
+      toggle.type = "button";
+      toggle.textContent = `▾ Versiones anteriores (${anteriores.length})`;
+
+      const box = document.createElement("div");
+      box.className = "older-releases";
+      box.hidden = true;
+      anteriores.forEach((release) => box.appendChild(crearFilaAnterior(release)));
+
+      toggle.addEventListener("click", () => {
+        const abierto = !box.hidden;
+        box.hidden = abierto;
+        toggle.textContent = abierto
+          ? `▾ Versiones anteriores (${anteriores.length})`
+          : `▴ Versiones anteriores (${anteriores.length})`;
+      });
+
+      cont.appendChild(toggle);
+      cont.appendChild(box);
+    }
   } catch (err) {
     const msg = document.createElement("div");
     msg.className = "error-releases";
