@@ -38,14 +38,22 @@ function detectarArquitectura(name) {
   return { clave: "universal", orden: 4, label: "Universal", detalle: "Cualquier Android" };
 }
 
-function crearBotonDescarga(asset) {
+function crearBotonDescarga(asset, destacado) {
   const arq = detectarArquitectura(asset.name);
   const btn = document.createElement("a");
-  btn.className = `asset-link arq-${arq.clave}`;
+  btn.className = `asset-link arq-${arq.clave} ${destacado ? "destacado" : "alternativo"}`;
   btn.href = asset.browser_download_url;
   btn.target = "_blank";
   btn.rel = "noopener";
-  btn.innerHTML =
+
+  if (destacado) {
+    const pill = document.createElement("span");
+    pill.className = "default-badge";
+    pill.textContent = "Descarga predeterminada";
+    btn.prepend(pill);
+  }
+
+  btn.innerHTML +=
     `<span class="arq-label">${arq.label}</span>` +
     `<span class="arq-detail">${arq.detalle}</span>` +
     `<span class="arq-size">${formatearBytes(asset.size)}</span>`;
@@ -91,7 +99,11 @@ function crearTarjetaUltima(release) {
   if (apks.length) {
     const box = document.createElement("div");
     box.className = "release-assets latest-assets";
-    apks.forEach(({ asset }) => box.appendChild(crearBotonDescarga(asset)));
+    const indiceV8a = apks.findIndex(({ arq }) => arq.clave === "v8a");
+    apks.forEach(({ asset, arq }, i) => {
+      const destacado = indiceV8a === i || (indiceV8a === -1 && i === 0);
+      box.appendChild(crearBotonDescarga(asset, destacado));
+    });
     el.appendChild(box);
   } else {
     const no = document.createElement("div");

@@ -299,9 +299,63 @@ body {
 
 .latest-assets {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
   margin-top: 16px;
+}
+
+/* Botón principal (v8a): ocupa todo el ancho y domina la sección */
+.asset-link.destacado {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-color: var(--primary-dark);
+  padding: 22px 18px;
+  border-radius: var(--radius-lg);
+  flex-direction: column;
+}
+
+.asset-link.destacado .arq-label {
+  font-size: 1.5rem;
+}
+
+.default-badge {
+  display: inline-block;
+  background: #fff;
+  color: var(--primary-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+
+/* Opción secundaria (v7a): más pequeña, tipo píldora */
+.asset-link.alternativo {
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  justify-self: center;
+}
+
+.asset-link.alternativo .arq-label {
+  font-size: 0.95rem;
+}
+
+.asset-link.alternativo .arq-detail,
+.asset-link.alternativo .arq-size {
+  font-size: 0.75rem;
+}
+
+.asset-link.alternativo.arq-v7a {
+  background: #fdf3e0;
+  border-color: var(--warning);
+  color: #8a5a00;
 }
 
 /* Botones de descarga grandes (v8a / v7a) */

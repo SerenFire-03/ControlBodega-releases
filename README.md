@@ -69,12 +69,12 @@ El script:
 2. Lee la versión de `pubspec.yaml` (ej. `0.8.7`).
 3. Crea el release con tag `v0.8.7` y adjunta **ambos** APK.
 
-> En la web, la última versión sale destacada con botones grandes **v8a** y
-> **v7a** (con su leyenda de color) y las versiones anteriores quedan ocultas
-> bajo el botón pequeño **"Versiones anteriores"**. Debajo de los botones hay
-> un aviso: si falla la instalación de **v8a**, instalar **v7a** (32 bits,
-> compatible con teléfonos baratos con Android de 32 bits, p. ej. Redmi 9A o
-> Motorolas de gama baja que traen Android 10 en 32 bits).
+> En la web, la última versión sale con **v8a (64 bits)** como descarga
+> predeterminada (botón grande) y **v7a (32 bits)** como opción secundaria más
+> pequeña, para teléfonos baratos con Android de 32 bits (p. ej. Redmi 9A o
+> Motorolas de gama baja con Android 10). Hay un aviso que indica usar v7a si
+> falla la instalación de v8a. Las versiones anteriores quedan ocultas bajo el
+> botón pequeño **"Versiones anteriores"**.
 
 ### Opción B — Manual desde el navegador
 
