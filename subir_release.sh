@@ -65,4 +65,4 @@ gh release create "$TAG" \
   --title "Control Bodega $VERSION" \
   --notes "${NOTES:-Publicación de la versión $VERSION}"
 
-echo "✓ Release publicado. La web mostrará los botones v8a (Android nuevo) y v7a (Android viejito)."
+echo "✓ Release publicado. La web mostrará los botones v8a (64 bits) y v7a (32 bits)."

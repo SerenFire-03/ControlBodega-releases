@@ -64,14 +64,15 @@ gh auth login
 El script:
 1. Compila la versión del proyecto `app_bodega (Fenix)` con `flutter build apk --release --split-per-abi`,
    que genera un APK por arquitectura:
-   - `app-arm64-v8a-release.apk` → **v8a · Android nuevo (64-bit)**
-   - `app-armeabi-v7a-release.apk` → **v7a · Android viejito (32-bit)**
+   - `app-arm64-v8a-release.apk` → **v8a · 64 bits**
+   - `app-armeabi-v7a-release.apk` → **v7a · 32 bits**
 2. Lee la versión de `pubspec.yaml` (ej. `0.8.7`).
 3. Crea el release con tag `v0.8.7` y adjunta **ambos** APK.
 
 > En la web, la última versión sale destacada con botones grandes **v8a** y
 > **v7a** (con su leyenda de color) y las versiones anteriores quedan ocultas
-> bajo el botón pequeño **"Versiones anteriores"**.
+> bajo el botón pequeño **"Versiones anteriores"**. Además, la página detecta
+> el dispositivo del visitante y resalta el APK recomendado (64/32 bits).
 
 ### Opción B — Manual desde el navegador
 
@@ -79,8 +80,8 @@ El script:
 2. En el repo público de releases: **Releases → Create a new release**.
 3. Crea el tag `vX.Y.Z` (debe coincidir con la versión de `pubspec.yaml`).
 4. Escribe las notas/changelog y adjunta los dos APK:
-   - `build/app/outputs/flutter-apk/app-arm64-v8a-release.apk` (Android nuevo)
-   - `build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk` (Android viejito)
+   - `build/app/outputs/flutter-apk/app-arm64-v8a-release.apk` (64 bits)
+   - `build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk` (32 bits)
 
 En unos segundos la web mostrará la nueva versión con sus botones v8a/v7a.
 

@@ -6,6 +6,17 @@
 
 const RELEASES_URL = `https://api.github.com/repos/${window.CONFIG.repo}/releases`;
 
+// Recomienda la arquitectura según el dispositivo que abre la página.
+// Desde Android 5 (2014) prácticamente todos los equipos son 64 bits.
+function recomendarArquitectura() {
+  const ua = (navigator.userAgent || "").toLowerCase();
+  const match = ua.match(/android\s*(\d+)/);
+  if (!match) return null;
+  return parseInt(match[1], 10) >= 5 ? "v8a" : "v7a";
+}
+
+const RECOMENDACION = recomendarArquitectura();
+
 function formatearFecha(iso) {
   if (!iso) return "";
   const d = new Date(iso);
@@ -26,15 +37,15 @@ function esApk(name) {
   return (name || "").toLowerCase().endsWith(".apk");
 }
 
-// Detecta si el APK es para Android nuevo (v8a) o viejito (v7a)
+// Detecta si el APK es de 64 bits (v8a) o de 32 bits (v7a)
 function detectarArquitectura(name) {
   const n = (name || "").toLowerCase();
   if (n.includes("arm64-v8a"))
-    return { clave: "v8a", orden: 1, label: "v8a", detalle: "Android nuevo · 64-bit" };
+    return { clave: "v8a", orden: 1, label: "v8a", detalle: "64 bits" };
   if (n.includes("armeabi-v7a"))
-    return { clave: "v7a", orden: 2, label: "v7a", detalle: "Android viejito · 32-bit" };
+    return { clave: "v7a", orden: 2, label: "v7a", detalle: "32 bits" };
   if (n.includes("x86_64"))
-    return { clave: "x86_64", orden: 3, label: "x86_64", detalle: "Emulador / computadora" };
+    return { clave: "x86_64", orden: 3, label: "x86_64", detalle: "Emulador" };
   return { clave: "universal", orden: 4, label: "Universal", detalle: "Cualquier Android" };
 }
 
@@ -45,7 +56,16 @@ function crearBotonDescarga(asset) {
   btn.href = asset.browser_download_url;
   btn.target = "_blank";
   btn.rel = "noopener";
-  btn.innerHTML =
+
+  if (RECOMENDACION === arq.clave) {
+    btn.classList.add("recomendada");
+    const pill = document.createElement("span");
+    pill.className = "recom-badge";
+    pill.textContent = "Recomendado";
+    btn.prepend(pill);
+  }
+
+  btn.innerHTML +=
     `<span class="arq-label">${arq.label}</span>` +
     `<span class="arq-detail">${arq.detalle}</span>` +
     `<span class="arq-size">${formatearBytes(asset.size)}</span>`;
@@ -157,6 +177,18 @@ async function cargarReleases() {
 
     const releases = await res.json();
     cont.innerHTML = "";
+
+    const nota = document.getElementById("recom-note");
+    if (nota) {
+      if (RECOMENDACION) {
+        nota.style.display = "";
+        nota.innerHTML =
+          `Según tu dispositivo te recomendamos: <strong>${RECOMENDACION}</strong>` +
+          ` (${RECOMENDACION === "v8a" ? "64 bits" : "32 bits"})`;
+      } else {
+        nota.style.display = "none";
+      }
+    }
 
     if (!releases.length) {
       const msg = document.createElement("div");
