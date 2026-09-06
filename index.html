@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control Bodega — Gestión de inventario</title>
+  <meta name="description" content="App de administración de inventario para bodegas. Precios en Bs/USD con tasa BCV, escáner de códigos de barras y backups en la nube." />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="assets/icon.png" alt="Logo Control Bodega" class="brand-logo" />
+        <span class="brand-name">Control Bodega</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#caracteristicas">Características</a>
+        <a href="#descargas">Descargas</a>
+        <a href="#instalacion">Instalación</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <img src="assets/icon.png" alt="Logo Control Bodega" class="hero-logo" />
+        <h1>Control Bodega</h1>
+        <p class="hero-sub">
+          Administración de inventario para bodegas. Calcula tus precios en
+          Bs/USD con la tasa BCV, escanea códigos de barras y sincroniza tus
+          datos en la nube.
+        </p>
+        <div class="hero-actions">
+          <a href="#descargas" class="btn btn-primary">Descargar APK</a>
+          <a href="#caracteristicas" class="btn btn-ghost">Ver características</a>
+        </div>
+        <p class="hero-badge">Versión estable: <span id="latest-version">…</span></p>
+      </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS -->
+    <section id="caracteristicas" class="section">
+      <div class="container">
+        <h2 class="section-title">Características</h2>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">🧾</div>
+            <h3>Inventario completo</h3>
+            <p>Registra productos, unidades por bulto, stock y cálculo automático de precios de venta.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">💱</div>
+            <h3>Precios en Bs/USD</h3>
+            <p>Precios en bolívares y dólares según la tasa BCV, con ganancia configurable por producto.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📷</div>
+            <h3>Escáner de códigos</h3>
+            <p>Agrega y busca productos escaneando el código de barras directamente con la cámara.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">☁️</div>
+            <h3>Backups en la nube</h3>
+            <p>Sincroniza tu inventario con Firestore y recupéralo desde cualquier dispositivo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESCARGAS / RELEASES -->
+    <section id="descargas" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Descargas</h2>
+        <p class="section-sub">Última versión disponible para Android.</p>
+
+        <div id="releases" class="releases">
+          <div class="loading">Cargando versiones…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALACIÓN -->
+    <section id="instalacion" class="section">
+      <div class="container">
+        <h2 class="section-title">¿Cómo instalar?</h2>
+        <ol class="steps">
+          <li><strong>Descarga</strong> el APK de la última versión en la sección Descargas.</li>
+          <li>En tu teléfono, abre el archivo <code>.apk</code> descargado.</li>
+          <li>Si tu navegador lo pide, <strong>permite instalar aplicaciones de origen desconocido</strong> para el navegador.</li>
+          <li>Acepta las advertencias de Android y completa la instalación.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Control Bodega · Hecho con ❤️ para bodegueros</p>
+    </div>
+  </footer>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>
