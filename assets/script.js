@@ -6,17 +6,6 @@
 
 const RELEASES_URL = `https://api.github.com/repos/${window.CONFIG.repo}/releases`;
 
-// Recomienda la arquitectura según el dispositivo que abre la página.
-// Desde Android 5 (2014) prácticamente todos los equipos son 64 bits.
-function recomendarArquitectura() {
-  const ua = (navigator.userAgent || "").toLowerCase();
-  const match = ua.match(/android\s*(\d+)/);
-  if (!match) return null;
-  return parseInt(match[1], 10) >= 5 ? "v8a" : "v7a";
-}
-
-const RECOMENDACION = recomendarArquitectura();
-
 function formatearFecha(iso) {
   if (!iso) return "";
   const d = new Date(iso);
@@ -56,16 +45,7 @@ function crearBotonDescarga(asset) {
   btn.href = asset.browser_download_url;
   btn.target = "_blank";
   btn.rel = "noopener";
-
-  if (RECOMENDACION === arq.clave) {
-    btn.classList.add("recomendada");
-    const pill = document.createElement("span");
-    pill.className = "recom-badge";
-    pill.textContent = "Recomendado";
-    btn.prepend(pill);
-  }
-
-  btn.innerHTML +=
+  btn.innerHTML =
     `<span class="arq-label">${arq.label}</span>` +
     `<span class="arq-detail">${arq.detalle}</span>` +
     `<span class="arq-size">${formatearBytes(asset.size)}</span>`;
@@ -177,18 +157,6 @@ async function cargarReleases() {
 
     const releases = await res.json();
     cont.innerHTML = "";
-
-    const nota = document.getElementById("recom-note");
-    if (nota) {
-      if (RECOMENDACION) {
-        nota.style.display = "";
-        nota.innerHTML =
-          `Según tu dispositivo te recomendamos: <strong>${RECOMENDACION}</strong>` +
-          ` (${RECOMENDACION === "v8a" ? "64 bits" : "32 bits"})`;
-      } else {
-        nota.style.display = "none";
-      }
-    }
 
     if (!releases.length) {
       const msg = document.createElement("div");

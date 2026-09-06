@@ -71,8 +71,10 @@ El script:
 
 > En la web, la última versión sale destacada con botones grandes **v8a** y
 > **v7a** (con su leyenda de color) y las versiones anteriores quedan ocultas
-> bajo el botón pequeño **"Versiones anteriores"**. Además, la página detecta
-> el dispositivo del visitante y resalta el APK recomendado (64/32 bits).
+> bajo el botón pequeño **"Versiones anteriores"**. Debajo de los botones hay
+> un aviso: si falla la instalación de **v8a**, instalar **v7a** (32 bits,
+> compatible con teléfonos baratos con Android de 32 bits, p. ej. Redmi 9A o
+> Motorolas de gama baja que traen Android 10 en 32 bits).
 
 ### Opción B — Manual desde el navegador
 
