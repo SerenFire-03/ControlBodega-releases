@@ -1,0 +1,109 @@
+/* ============================================================
+   Control Bodega — Override violeta para la página de la empresa
+   (Elijos Tech). Paleta extraída del logo prototipo (#5F2CE5).
+   Se carga después de styles.css en empresa.html.
+   ============================================================ */
+
+:root {
+  --primary-dark: #1B0B48;
+  --primary: #5F2CE5;
+  --primary-soft: #7C4DFF;
+  --primary-light: #ECE6FF;
+  --bg: #F6F3FC;
+  --surface: #FFFFFF;
+  --ink: #1C1A26;
+  --text-main: #2B2836;
+  --text-secondary: #6B6580;
+  --text-muted: #9C96B0;
+  --border: #E4E0F0;
+  --shadow-sm: 0 2px 8px rgba(43, 20, 80, 0.06);
+  --shadow: 0 12px 34px rgba(43, 20, 80, 0.1);
+  --shadow-lg: 0 22px 50px rgba(27, 11, 72, 0.18);
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(150deg, #160A4D 0%, #2A1490 45%, #5F2CE5 100%);
+}
+
+.hero-glow-1 {
+  background: rgba(124, 77, 255, 0.5);
+}
+
+.hero-glow-2 {
+  background: rgba(27, 11, 72, 0.9);
+}
+
+.pulse-dot {
+  background: #7C4DFF;
+  box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.6);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(124, 77, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
+}
+
+.hero-sub {
+  color: #D9CFF5;
+}
+
+.hero-kicker {
+  color: #D9CFF5;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.stat span {
+  color: #B8ABE0;
+}
+
+/* Features */
+.feature:hover {
+  border-color: #CEC2F5;
+}
+
+/* Stats / card de misión */
+.stat-card strong {
+  color: var(--primary);
+}
+
+/* Producto */
+.producto-cta .btn-primary,
+.about-body .btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 10px 32px rgba(95, 44, 229, 0.3);
+}
+
+.producto-cta .btn-primary:hover,
+.about-body .btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+/* CTA */
+.cta-panel p {
+  color: #D9CFF5;
+}
+
+/* Footer */
+.footer {
+  background: var(--primary-dark);
+  color: #C9BFE8;
+}
+
+.footer-brand p {
+  color: #B9AEDA;
+}
+
+.footer-brand .brand-name span {
+  color: #A78BFA;
+}
+
+.footer-col a {
+  color: #B9AEDA;
+}
+
+.footer-bottom {
+  color: #9B8EC4;
+}
