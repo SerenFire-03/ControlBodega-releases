@@ -6,34 +6,38 @@
 
 ## 1. Colores
 
-### Paleta principal (App + Web)
+> La paleta se extrajo del **prototipo del logo de la empresa** (`logo-empresa.png`): **blanco + violeta sobre negro**. Para la web se usa esta misma paleta violeta (`#5F2CE5`).
+
+### Paleta principal (Web)
 
 | Token | HEX | Uso |
 |---|---|---|
-| `primaryDark` | `#0A4C4C` | Header, gradiente hero, acentos profundos |
-| `primary` | `#117D7A` | Botones, links, iconos activos, badges |
-| `primaryLight` | `#E6F4F2` | Fondos suaves, chips, badges claros |
-| `bg` | `#F4F7F7` | Fondo general de la app |
+| `primaryDark` | `#1B0B48` | Footer, gradiente hero profundo, hover de botones |
+| `primary` | `#5F2CE5` | Botones, links, iconos activos, badges |
+| `primarySoft` | `#7C4DFF` | Acentos vivos, pulse dot, detalles |
+| `primaryLight` | `#ECE6FF` | Fondos suaves, chips, badges claros |
+| `bg` | `#F6F3FC` | Fondo general de la web |
 | `surface` | `#FFFFFF` | Cards, paneles, modales |
-| `textMain` | `#1F2937` | Texto principal |
-| `textSecondary` | `#6B7280` | Texto secundario / descripciones |
-| `textMuted` | `#9CA3AF` | Texto apagado / placeholders |
+| `textMain` | `#1C1A26` | Texto principal |
+| `textSecondary` | `#6B6580` | Texto secundario / descripciones |
+| `textMuted` | `#9C96B0` | Texto apagado / placeholders |
 | `danger` | `#E74C3C` | Errores, eliminar, alertas |
 | `success` | `#4CAF50` | Confirmaciones, stock OK |
 | `warning` | `#F59E0B` | Advertencias, badges dorados |
-| `border` | `#E5E7EB` | Bordes sutiles de cards y separadores |
+| `border` | `#E4E0F0` | Bordes sutiles de cards y separadores |
 
 ### Gradientes
 
-- **Hero / tarjetas admin:** `linear-gradient(135deg, #0D5554, #0A4C4C)` → el gradiente teal profundo.
-- **CTA panel:** `linear-gradient(135deg, #0D5554, #117D7A)` → gradiente con glow sutil.
-- **Hero glows:** dos elipses semitransparentes `rgba(17,125,122,0.12)` y `rgba(109,216,201,0.10)` superpuestas con `position: absolute`.
+- **Hero:** `linear-gradient(150deg, #160A4D 0%, #2A1490 45%, #5F2CE5 100%)` → violeta profundo a violeta.
+- **CTA panel:** `linear-gradient(140deg, var(--primary-dark), var(--primary))`.
+- **Tarjeta empresa (descargas):** `linear-gradient(135deg, #2A1490, #1B0B48)`.
+- **Hero glows:** dos elipses semitransparentes `rgba(124,77,255,0.5)` y `rgba(27,11,72,0.9)` superpuestas con `position: absolute`.
 
 ### Regla de uso
 
-- El **teal** es el color dominante. Se usa en headers, botones principales, badges y acentos.
-- El **blanco** se reserva para cards sobre fondo claro.
-- El **fondo** (`#F4F7F7`) solo se ve detrás de las cards, nunca como color de botón.
+- El **violeta** es el color dominante. Se usa en headers, botones principales, badges y acentos.
+- El **blanco** se reserva para cards sobre fondo claro; el **negro** para el logo de la empresa (que es blanco+violeta sobre negro).
+- El **fondo** (`#F6F3FC`) solo se ve detrás de las cards, nunca como color de botón.
 - Los colores de **alerta** (rojo, verde, amarillo) se usan solo para feedback específico, nunca como color de marca.
 
 ---
@@ -75,8 +79,8 @@
 ### Reglas generales
 
 - El logo **nunca** se distorsiona: siempre `object-fit: contain`.
-- Sobre fondos claros, el logo se envuelve en un contenedor con fondo oscuro (negro o teal).
-- Sobre fondos oscuros (hero teal), el logo se envuelve en `.hero-logo-wrap` con fondo blanco.
+- Sobre fondos claros, el logo se envuelve en un contenedor con fondo oscuro (negro o violeta).
+- Sobre fondos oscuros (hero violeta), el logo se envuelve en `.hero-logo-wrap` con fondo blanco.
 - **No** se agrega borde adicional al logo (el `box-shadow` ya genera separación visual).
 
 ---
@@ -105,11 +109,11 @@
 | `shadow-sm` | `0 2px 8px rgba(0,0,0,0.04)` |
 | `shadow` | `0 6px 24px rgba(0,0,0,0.06)` |
 | `shadow-lg` | `0 12px 40px rgba(0,0,0,0.10)` |
-| `shadow-card` | `0 4px 20px rgba(17,125,122,0.10)` |
+| `shadow-card` | `0 4px 20px rgba(95,44,229,0.10)` |
 
 - Cards usan `shadow` por defecto.
 - Hero logo usa `shadow-lg`.
-- Botón primario hover: `0 10px 32px rgba(17,125,122,0.30)`.
+- Botón primario hover: `0 10px 32px rgba(95,44,229,0.30)`.
 
 ---
 
@@ -119,10 +123,10 @@
 
 | Clase | Estilo |
 |---|---|
-| `.btn-primary` | Fondo teal `#117D7A`, texto blanco, sombra teal hover |
+| `.btn-primary` | Fondo violeta `#5F2CE5`, texto blanco, sombra violeta hover |
 | `.btn-ghost` | Sin fondo, borde `border`, texto `textMain` |
 | `.btn-lg` | Padding `16px 36px`, font-size `1rem` |
-| `.btn-light` | Fondo blanco, texto teal (para uso sobre fondos oscuros) |
+| `.btn-light` | Fondo blanco, texto violeta (para uso sobre fondos oscuros) |
 
 ### Cards
 

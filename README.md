@@ -13,7 +13,7 @@ app_bodega (releases)/
 ├── assets/
 │   ├── icon.png        # Logo de la app
 │   ├── logo-empresa.png# Logo de la empresa
-│   ├── styles.css      # Estilos (tema teal igual que la app Flutter)
+│   ├── styles.css      # Estilos (tema violeta #5F2CE5, del logo de la empresa)
 │   ├── config.js       # Configuración: repo + nombre de la app
 │   └── script.js       # Carga los releases desde la API de GitHub
 ├── subir_release.sh    # Script para compilar el APK y publicar el release
