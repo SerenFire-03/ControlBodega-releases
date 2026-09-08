@@ -8,17 +8,16 @@
   --primary: #117D7A;
   --primary-soft: #14A19B;
   --primary-light: #E6F4F2;
-  --primary-light-2: #F0F9F8;
-  --bg: #F5F9F9;
+  --bg: #F4F7F7;
   --surface: #FFFFFF;
-  --ink: #10201F;
-  --text-main: #24403E;
-  --text-secondary: #5C7574;
-  --text-muted: #9CAFAE;
-  --border: #E3ECEB;
+  --ink: #1F2937;
+  --text-main: #1F2937;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --border: #E5E7EB;
   --danger: #E74C3C;
-  --success: #3E9B71;
-  --warning: #E89B0C;
+  --success: #4CAF50;
+  --warning: #F59E0B;
   --radius-lg: 22px;
   --radius-md: 16px;
   --radius-sm: 12px;
@@ -1165,6 +1164,16 @@ img {
   font-size: 0.98rem;
 }
 
+.about-body .btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 10px 32px rgba(17, 125, 122, 0.3);
+}
+
+.about-body .btn-primary:hover {
+  background: var(--primary-dark);
+}
+
 @media (max-width: 640px) {
   .about-card {
     grid-template-columns: 1fr;
@@ -1205,6 +1214,74 @@ img {
 .stat-card span {
   color: var(--text-secondary);
   font-size: 0.92rem;
+}
+
+/* Tarjetas de producto (app y empresa) */
+.producto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 46px;
+}
+
+.producto-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 40px);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.producto-img {
+  width: clamp(92px, 12vw, 120px);
+  height: clamp(92px, 12vw, 120px);
+  object-fit: contain;
+  margin: 0 auto 20px;
+}
+
+.app-icon {
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.camp-logo {
+  background: #000;
+  border-radius: 28px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.producto-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.producto-card p {
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+}
+
+.producto-cta {
+  text-align: center;
+  margin-top: 38px;
+}
+
+.producto-cta .btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 10px 32px rgba(17, 125, 122, 0.3);
+}
+
+.producto-cta .btn-primary:hover {
+  background: var(--primary-dark);
 }
 
 /* ============================================================
