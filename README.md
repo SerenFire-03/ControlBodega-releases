@@ -8,9 +8,11 @@ como **GitHub Releases**.
 
 ```
 app_bodega (releases)/
-├── index.html          # Página principal (hero, características, descargas)
+├── index.html          # Página principal (hero, características, descargas, FAQ)
+├── empresa.html        # Página de la empresa (Elijos Tech)
 ├── assets/
 │   ├── icon.png        # Logo de la app
+│   ├── logo-empresa.png# Logo de la empresa
 │   ├── styles.css      # Estilos (tema teal igual que la app Flutter)
 │   ├── config.js       # Configuración: repo + nombre de la app
 │   └── script.js       # Carga los releases desde la API de GitHub

@@ -155,6 +155,7 @@ function crearFilaAnterior(release) {
 
 async function cargarReleases() {
   const cont = document.getElementById("releases");
+  if (!cont) return;
   cont.innerHTML = '<div class="loading">Cargando versiones…</div>';
 
   try {
