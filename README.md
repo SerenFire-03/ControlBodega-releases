@@ -8,16 +8,17 @@ como **GitHub Releases**.
 
 ```
 app_bodega (releases)/
-├── index.html          # Página principal (hero, características, descargas, FAQ)
-├── empresa.html        # Página de la empresa (Elijos Tech)
+├── index.html              # Página principal (hero, características, descargas, FAQ)
+├── empresa.html            # Página de la empresa (Elijos Tech, tema oscuro violeta)
 ├── assets/
-│   ├── icon.png        # Logo de la app
-│   ├── logo-empresa.png# Logo de la empresa
-│   ├── styles.css      # Estilos base (teal #117D7A, igual que la app)
-│   ├── styles-empresa.css # Override violeta #5F2CE5 (solo empresa.html)
-│   ├── config.js       # Configuración: repo + nombre de la app
-│   └── script.js       # Carga los releases desde la API de GitHub
-├── subir_release.sh    # Script para compilar el APK y publicar el release
+│   ├── icon.png            # Logo de la app (Control Bodega)
+│   ├── logo.png            # Logo real de la empresa (blanco, transparente)
+│   ├── styles.css          # Estilos base teal #117D7A (home / app)
+│   ├── empresa.css         # Estilos dark violeta #7C3CFF (empresa.html)
+│   ├── empresa.js          # Nav/menú móvil/reveal de empresa.html
+│   ├── config.js           # Configuración: repo + nombre de la app
+│   └── script.js           # Carga los releases desde la API de GitHub
+├── subir_release.sh        # Script para compilar el APK y publicar el release
 └── README.md
 ```
 

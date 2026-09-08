@@ -1,228 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elijos Tech — La empresa detrás de Control Bodega</title>
-  <meta name="description" content="Elijos Tech, empresa venezolana de desarrollo de software para bodegas. El equipo detrás de Control Bodega." />
-  <meta name="theme-color" content="#5F2CE5" />
-  <meta property="og:title" content="Elijos Tech — La empresa" />
-  <meta property="og:description" content="Desarrollamos tecnología pensada para el comercio venezolano." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" type="image/png" href="assets/icon.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="stylesheet" href="assets/styles-empresa.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07070b">
+  <meta name="description" content="Elijos Tech — innovación y soluciones digitales para problemas reales. Creadores de Control Bodega.">
+  <title>Elijos Tech — Innovación que ayuda</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="assets/empresa.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="nav" id="nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">
-        <img src="assets/icon.png" alt="Logo Control Bodega" class="brand-logo" />
-        <span class="brand-name">Control<span>Bodega</span></span>
-      </a>
-
-      <nav class="nav-menu" id="nav-menu" aria-label="Principal">
-        <a href="index.html#caracteristicas">Inicio</a>
-        <a href="empresa.html#mision">Misión</a>
-        <a href="empresa.html#valores">Valores</a>
-        <a href="empresa.html" class="active">Empresa</a>
-        <a href="index.html#descargas" class="nav-cta">Descargar</a>
-      </nav>
-
+  <nav id="nav">
+    <div class="container navin">
+      <a class="brand" href="#inicio"><img src="assets/logo.png" alt="Elijos Tech"><span>ELIJOS TECH</span></a>
+      <div class="links" id="links">
+        <a href="#servicios">Servicios</a>
+        <a href="#producto">Producto</a>
+        <a href="#vision">Visión</a>
+        <a href="#contacto">Contacto</a>
+        <a class="navcta" href="index.html#descargas">Descargar Control Bodega</a>
+      </div>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
+  </nav>
 
   <main>
-    <!-- HERO EMPRESA -->
-    <section class="hero">
-      <span class="hero-glow hero-glow-1" aria-hidden="true"></span>
-      <span class="hero-glow hero-glow-2" aria-hidden="true"></span>
-      <div class="container hero-inner">
-        <div class="hero-logo-wrap">
-          <img src="assets/logo-empresa.png" alt="Logo de Elijos Tech" class="hero-logo" />
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <span class="hero-glow" aria-hidden="true"></span>
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Innovación · Venezuela · 2026</div>
+          <h1>Ideas que se convierten en <span>soluciones.</span></h1>
+          <p class="lead">Elijos Tech crea soluciones digitales para problemas reales. Empezamos pequeño, pensamos en grande y construimos tecnología útil para personas y empresas.</p>
+          <div class="actions">
+            <a class="btn primary" href="#producto">Conoce nuestro primer producto</a>
+            <a class="btn secondary" href="index.html#descargas">Descargar Control Bodega</a>
+          </div>
         </div>
-
-        <p class="hero-kicker">
-          <span class="pulse-dot"></span>
-          La empresa detrás de Control Bodega
-        </p>
-
-        <h1>Elijos Tech</h1>
-
-        <p class="hero-sub">
-          Desarrollamos software útil y confiable para el comercio venezolano:
-          herramientas que hacen más simple el día a día de las bodegas.
-        </p>
-
-        <div class="hero-actions">
-          <a href="index.html#descargas" class="btn btn-lg btn-light">Descargar la app</a>
-          <a href="#mision" class="btn btn-lg btn-ghost">Nuestra misión</a>
+        <div class="hero-logo">
+          <div class="logo-card"><img src="assets/logo.png" alt="Logotipo de Elijos Tech"></div>
         </div>
       </div>
     </section>
 
-    <!-- MISIÓN -->
-    <section id="mision" class="section">
+    <!-- SERVICIOS -->
+    <section id="servicios">
       <div class="container">
-        <p class="kicker reveal">Nuestra misión</p>
-        <h2 class="section-title reveal">Tecnología al servicio de tu bodega</h2>
-        <p class="section-sub reveal">
-          Nacimos para resolver los retos reales de los bodegueros venezolanos:
-          precios que cambian todos los días, inventarios que hay que llevar y la
-          tranquilidad de no perder la información.
-        </p>
-
-        <div class="mision-stats reveal">
-          <div class="stat-card">
-            <strong>100%</strong>
-            <span>Pensado para el mercado venezolano</span>
-          </div>
-          <div class="stat-card">
-            <strong>Bs · USD</strong>
-            <span>Precios calculados con la tasa del día</span>
-          </div>
-          <div class="stat-card">
-            <strong>Nube</strong>
-            <span>Tus datos respaldados y sincronizados</span>
-          </div>
+        <div class="section-head reveal">
+          <div class="eyebrow">Lo que hacemos</div>
+          <h2>Soluciones sin complicarlas.</h2>
+          <p>La tecnología debe resolver problemas, no crear otros. Nuestro enfoque parte de entender la necesidad y construir lo que realmente hace falta.</p>
+        </div>
+        <div class="grid">
+          <article class="card reveal"><div class="icon">01</div><h3>Aplicaciones</h3><p>Aplicaciones móviles y productos digitales pensados para necesidades concretas.</p></article>
+          <article class="card reveal"><div class="icon">02</div><h3>Software para empresas</h3><p>Herramientas para pequeños y medianos negocios que necesitan digitalizar sus procesos.</p></article>
+          <article class="card reveal"><div class="icon">03</div><h3>Soluciones a medida</h3><p>Analizamos un problema y construimos una solución alrededor de él, en lugar de forzar una herramienta genérica.</p></article>
         </div>
       </div>
     </section>
 
     <!-- PRODUCTO -->
-    <section id="producto" class="section section-alt">
+    <section id="producto">
       <div class="container">
-        <p class="kicker reveal">Nuestro producto</p>
-        <h2 class="section-title reveal">Control Bodega</h2>
-        <p class="section-sub reveal">
-          La app de inventario que creamos para el comercio venezolano.
-        </p>
-
-        <div class="producto-grid">
-          <div class="producto-card reveal">
-            <img src="assets/icon.png" alt="Logo de la app Control Bodega" class="producto-img app-icon" />
-            <h3>Control Bodega</h3>
-            <p>Administra tu inventario, registra tus productos y calcula tus precios de venta en bolívares y dólares.</p>
-          </div>
-
-          <div class="producto-card reveal">
-            <img src="assets/logo-empresa.png" alt="Logo de Elijos Tech" class="producto-img camp-logo" />
-            <h3>Hecho en Venezuela</h3>
-            <p>Conocemos la tasa, la realidad del comercio y las necesidades del bodeguero de primera mano.</p>
-          </div>
+        <div class="section-head reveal">
+          <div class="eyebrow">Primer MVP</div>
+          <h2>Control Bodega</h2>
+          <p>Una solución nacida de una necesidad real del comercio venezolano.</p>
         </div>
-
-        <div class="producto-cta reveal">
-          <a href="index.html#descargas" class="btn btn-primary">Descargar la última versión</a>
+        <div class="feature reveal">
+          <div class="feature-box">
+            <div class="eyebrow">Producto en desarrollo</div>
+            <h3>Control de inventario, hecho para la realidad del negocio.</h3>
+            <p>Control Bodega nace para ayudar a pequeños comercios a gestionar su inventario de una forma sencilla y práctica.</p>
+            <div class="mini-list">
+              <div><span class="dot"></span> Enfoque offline-first</div>
+              <div><span class="dot"></span> Precios en Bs/USD con la tasa del día</div>
+              <div><span class="dot"></span> Respaldos en la nube</div>
+            </div>
+            <a class="btn primary" href="index.html#descargas">Descargar la app</a>
+          </div>
+          <div class="feature-box">
+            <div class="eyebrow">El comienzo</div>
+            <h3>Un producto. Después, un ecosistema.</h3>
+            <p>Control Bodega es nuestro primer MVP, pero no define el límite de Elijos Tech: es el primer paso de una compañía que aspira a desarrollar múltiples productos y soluciones para el mercado local.</p>
+            <a class="btn secondary" href="index.html">Ver la web de la app</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- VALORES -->
-    <section id="valores" class="section">
+    <!-- VISIÓN -->
+    <section id="vision">
       <div class="container">
-        <p class="kicker reveal">Nuestros valores</p>
-        <h2 class="section-title reveal">Lo que nos guía</h2>
-
-        <div class="features">
-          <article class="feature reveal">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-3 8-9V5l-8-3-8 3v8c0 6 8 9 8 9z"/><path d="m9 11 2 2 4-4"/></svg>
-            </div>
-            <h3>Datos respaldados</h3>
-            <p>Tu inventario se guarda de forma local y puede respaldarse en la nube.</p>
-          </article>
-
-          <article class="feature reveal">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </div>
-            <h3>Hecho en Venezuela</h3>
-            <p>Conocemos la tasa, los precios y la realidad del comercio local de primera mano.</p>
-          </article>
-
-          <article class="feature reveal">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2v4"/><path d="M7 2v4"/><path d="M16 8h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1"/><rect x="8" y="12" width="8" height="2" rx="1"/><rect x="8" y="16" width="5" height="2" rx="1"/></svg>
-            </div>
-            <h3>Mejoras constantes</h3>
-            <p>Cada versión incorpora avances que piden los propios usuarios de la app.</p>
-          </article>
-
-          <article class="feature reveal">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v3a1 1 0 0 0 1 1h2l3 3V8L6 4H4a1 1 0 0 0-1 1v6z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19 7a8 8 0 0 1 0 10"/></svg>
-            </div>
-            <h3>Soporte cercano</h3>
-            <p>Estamos disponibles para resolver dudas y escuchar sugerencias.</p>
-          </article>
+        <div class="vision reveal">
+          <div class="eyebrow">Nuestra visión</div>
+          <h2>Innovación que ayuda.</h2>
+          <p>Elijos Tech comienza en Venezuela con un equipo pequeño y una idea sencilla: resolver problemas reales mediante tecnología. El futuro puede llevarnos mucho más lejos.</p>
+          <div class="stats">
+            <div class="stat"><strong>3</strong><span>Fundadores</span></div>
+            <div class="stat"><strong>1</strong><span>Primer MVP en construcción</span></div>
+            <div class="stat"><strong>∞</strong><span>Posibilidades por explorar</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
+    <!-- CONTACTO -->
+    <section id="contacto">
       <div class="container">
-        <div class="cta-panel reveal">
-          <span class="cta-glow" aria-hidden="true"></span>
-          <h2>Prueba Control Bodega</h2>
-          <p>Descarga la app y lleva tu inventario bajo control hoy mismo.</p>
-          <a href="index.html#descargas" class="btn btn-lg btn-light">Descargar la app</a>
+        <div class="contact reveal">
+          <div class="contact-box">
+            <div class="eyebrow">¿Tienes un problema?</div>
+            <h3>Hablemos.</h3>
+            <p>Si necesitas una solución tecnológica, cuéntanos qué quieres resolver.</p>
+            <a class="btn primary" href="mailto:elijostech@gmail.com">elijostech@gmail.com</a>
+          </div>
+          <div class="contact-box">
+            <div class="eyebrow">Elijos Tech</div>
+            <h3>Empezamos pequeño.</h3>
+            <p>Somos un equipo venezolano construyendo nuestro primer producto y preparando el camino para mucho más.</p>
+            <a class="btn secondary" href="#inicio">Volver arriba ↑</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="brand">
-          <img src="assets/icon.png" alt="Logo Control Bodega" class="brand-logo" />
-          <span class="brand-name">Control<span>Bodega</span></span>
-        </div>
-        <p>Gestión de inventario para bodegas del mercado venezolano. Precios en Bs/USD y sincronización en la nube.</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>App</h4>
-        <a href="index.html#caracteristicas">Características</a>
-        <a href="index.html#descargas">Descargas</a>
-        <a href="index.html#instalacion">Instalación</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Ayuda</h4>
-        <a href="index.html#faq">Preguntas frecuentes</a>
-        <a href="empresa.html">Nuestra empresa</a>
-        <a href="mailto:eliellugo12@gmail.com">Contacto</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <p>© 2026 Control Bodega · Elijos Tech</p>
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <span>© 2026 Elijos Tech. Todos los derechos reservados.</span>
+        <span class="foot-links">
+          <a href="index.html">Control Bodega</a>
+          <a href="#contacto">Contacto</a>
+        </span>
       </div>
     </div>
   </footer>
 
-  <button class="back-top" id="back-top" type="button" aria-label="Volver arriba">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
-
-  <script src="assets/config.js"></script>
-  <script src="assets/script.js"></script>
+  <script src="assets/empresa.js"></script>
 </body>
 </html>

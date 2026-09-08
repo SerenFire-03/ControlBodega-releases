@@ -8,12 +8,12 @@
 
 | Página / Producto | Paleta |
 |---|---|
-| **App Control Bodega** (Flutter) y **home `index.html`** | **Teal** (`#117D7A` / `#0A4C4C`) |
-| **Página de la empresa** (`empresa.html`) | **Violeta** (extraída del logo: `#5F2CE5` / `#1B0B48`) |
+| **App Control Bodega** (Flutter) y **home `index.html`** | **Teal** claro (`#117D7A` / `#0A4C4C`) |
+| **Página de la empresa** (`empresa.html`) | **Dark violeta** (`#07070b` / `#7C3CFF`) según el prototipo oficial |
 
-La web separa los dos estilos en dos CSS:
-- `assets/styles.css` → paleta **teal** (base, usada por `index.html`).
-- `assets/styles-empresa.css` → override **violeta**, cargado después del base **solo** en `empresa.html`.
+La web separa los dos estilos en dos CSS completamente independientes:
+- `assets/styles.css` → paleta **teal** (home `index.html`).
+- `assets/empresa.css` → **dark violeta**, exclusiva de `empresa.html` (no usa el CSS del home).
 
 ---
 
@@ -42,35 +42,33 @@ La web separa los dos estilos en dos CSS:
 - **CTA panel:** `linear-gradient(140deg, var(--primary-dark), var(--primary))`.
 - **Tarjeta empresa (descargas):** `linear-gradient(135deg, #0D5554, #0A4C4C)`.
 
-### Paleta de la empresa (violeta) — `empresa.html`
+### Paleta de la empresa (dark violeta) — `empresa.html`
 
 | Token | HEX | Uso |
 |---|---|---|
-| `primaryDark` | `#1B0B48` | Footer, gradiente hero profundo, hover de botones |
-| `primary` | `#5F2CE5` | Botones, links, iconos activos, badges |
-| `primarySoft` | `#7C4DFF` | Acentos vivos, pulse dot, detalles |
-| `primaryLight` | `#ECE6FF` | Fondos suaves, chips, badges claros |
-| `bg` | `#F6F3FC` | Fondo general de la web |
-| `surface` | `#FFFFFF` | Cards, paneles, modales |
-| `textMain` | `#1C1A26` | Texto principal |
-| `textSecondary` | `#6B6580` | Texto secundario / descripciones |
-| `textMuted` | `#9C96B0` | Texto apagado / placeholders |
-| `danger` | `#E74C3C` | Errores, eliminar, alertas |
-| `success` | `#4CAF50` | Confirmaciones, stock OK |
-| `warning` | `#F59E0B` | Advertencias, badges dorados |
-| `border` | `#E4E0F0` | Bordes sutiles de cards y separadores |
+| `bg` | `#07070b` | Fondo global con glows radiales violeta |
+| `panel / panel2` | `#0e0f16` / `#131420` | Menú móvil, cards con gradiente |
+| `violet` | `#7C3CFF` | Acabados violeta, glows, dots |
+| `violet2` | `#A36BFF` | Acentos de texto (span de h1) |
+| `text` | `#F5F5F7` | Texto principal (blanco) |
+| `muted` | `#A5A7B4` | Texto secundario / descripciones |
+| `line` | `rgba(255,255,255,.10)` | Bordes de cards y separadores |
+| `eyebrow` | `#B990FF` | Kickers en mayúscula |
 
-**Gradientes violeta:**
+**Gradientes y fondos violeta (dark):**
+- **Body:** `radial-gradient(circle at 80% 10%, rgba(124,60,255,.16), transparent 28%)` + `var(--bg)`.
+- **Cards:** `linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018))`.
+- **Feature boxes:** `linear-gradient(135deg, rgba(124,60,255,.15), rgba(255,255,255,.025))`.
+- **Logo card:** `linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.015))` + glow `0 0 80px rgba(124,60,255,.12)`.
 - **Hero:** `linear-gradient(150deg, #160A4D 0%, #2A1490 45%, #5F2CE5 100%)`.
 - **CTA panel:** `linear-gradient(140deg, var(--primary-dark), var(--primary))`.
 - **Hero glows:** `rgba(124,77,255,0.5)` y `rgba(27,11,72,0.9)`.
 
 ### Regla de uso
 
-- La **app y su home** usan siempre **teal**; la **empresa** usa **violeta**.
-- El color dominante se usa en headers, botones principales, badges y acentos.
-- El **blanco** se reserva para cards sobre fondo claro; el **negro** para el logo de la empresa (blanco+violeta sobre negro).
-- El **fondo** solo se ve detrás de las cards, nunca como color de botón.
+- La **app y su home** usan siempre **teal claro**; la **empresa** usa **dark violeta**.
+- La página de empresa es **100% oscura**: fondo `#07070b`, texto blanco, acentos violeta `#7C3CFF`.
+- El **logo de la empresa** (`logo.png`) es **blanco sobre transparente**: se muestra sobre fondos oscuros o dentro de contenedores negros.
 - Los colores de **alerta** (rojo, verde, amarillo) se usan solo para feedback específico, nunca como color de marca.
 
 ---
@@ -101,19 +99,17 @@ La web separa los dos estilos en dos CSS:
 - **Presentación en web:** dentro de `.brand-logo` con `width: 40px; border-radius: 12px; box-shadow`.
 - **En hero (home):** dentro de `.hero-logo-wrap` (fondo blanco, sombra, `border-radius: 28px`, tamaño `76px`).
 
-### Logo de la empresa (`logo-empresa.png`)
+### Logo de la empresa (`logo.png`)
 
-- **Archivo:** `assets/logo-empresa.png` (569×613, fondo negro, JPEG original convertido a PNG).
-- **Uso:** sección "La empresa" en home, hero de `empresa.html`.
-- **Presentación en home:** dentro de `.about-logo` (140px, fondo negro, `border-radius: 26px`, padding 12px).
-- **Presentación en empresa.html:** dentro de `.hero-logo-wrap` (mismo estilo que el hero del home).
-- **En tarjeta de descargas:** dentro de `.empresa-logo` (96px, fondo negro, `border-radius: 20px`, padding 8px).
+- **Archivo:** `assets/logo.png` (1254×1254, **blanco sobre transparente**, el real del prototipo).
+- **Uso:** marca de `empresa.html` (nav + logo card), sección "La empresa" del home, tarjeta de descargas.
+- **Presentación en home:** dentro de `.about-logo` (140px, fondo negro, `border-radius: 26px`, padding 12px) y `.empresa-logo` (96px, fondo negro, `border-radius: 20px`, padding 8px) — el logo blanco requiere fondo oscuro.
+- **Presentación en empresa.html:** en la `.logo-card` (superficie oscura glass con glow violeta) y en la nav (42px).
 
 ### Reglas generales
 
 - El logo **nunca** se distorsiona: siempre `object-fit: contain`.
-- Sobre fondos claros, el logo se envuelve en un contenedor con fondo oscuro (negro o del color dominante).
-- Sobre fondos oscuros, el logo se envuelve en `.hero-logo-wrap` con fondo blanco.
+- Como es **blanco sobre transparente**, solo se muestra sobre fondos **oscuros** (body dark, contenedores negros, hero teal).
 - **No** se agrega borde adicional al logo (el `box-shadow` ya genera separación visual).
 
 ---
@@ -142,33 +138,40 @@ La web separa los dos estilos en dos CSS:
 | `shadow-sm` | `0 2px 8px rgba(0,0,0,0.04)` |
 | `shadow` | `0 6px 24px rgba(0,0,0,0.06)` |
 | `shadow-lg` | `0 12px 40px rgba(0,0,0,0.10)` |
-| `shadow-card` | Teal: `rgba(17,125,122,0.10)` · Violeta: `rgba(95,44,229,0.10)` |
+| `shadow-card` | Teal: `rgba(17,125,122,0.10)` |
+| glow violeta (empresa) | `0 0 80px rgba(124,60,255,.12)` |
 
-- Cards usan `shadow` por defecto.
-- Hero logo usa `shadow-lg`.
-- Botón primario hover: teal `rgba(17,125,122,0.30)` · violeta `rgba(95,44,229,0.30)`.
+- Cards del home usan `shadow` por defecto.
+- Hero logo del home usa `shadow-lg`.
+- Botón primario del home: hover `rgba(17,125,122,0.30)`.
+- **Empresa (dark):** iluminación con **glows** violeta (`rgba(124,60,255,.13)` blurred) en vez de sombras teal.
 
 ---
 
 ## 6. Componentes clave
 
-### Botones
+### Botones del home (teal)
 
 | Clase | Estilo |
 |---|---|
-| `.btn-primary` | Fondo color dominante (teal `#117D7A` o violeta `#5F2CE5`), texto blanco, sombra hover del color |
+| `.btn-primary` | Fondo teal `#117D7A`, texto blanco, sombra teal hover |
 | `.btn-ghost` | Sin fondo, borde `border`, texto `textMain` |
 | `.btn-lg` | Padding `16px 36px`, font-size `1rem` |
-| `.btn-light` | Fondo blanco, texto color dominante (fondo oscuro) |
+| `.btn-light` | Fondo blanco, texto teal (fondo oscuro) |
+
+### Botones de la empresa (dark)
+
+| Clase | Estilo |
+|---|---|
+| `.btn.primary` | **Blanco**, texto `#09090c`, hover con glow blanco |
+| `.btn.secondary` | Fondo `rgba(255,255,255,.035)`, borde `line`, hover borde violeta `rgba(163,107,255,.6)` |
 
 ### Cards
 
-- Fondo: `var(--surface)` blanco.
-- Borde: `1px solid var(--border)`.
-- Sombra: `var(--shadow)`.
-- Padding: `clamp(26px, 4vw, 42px)`.
+- **Home (claro):** fondo blanco `surface`, borde `1px solid var(--border)`, sombra `var(--shadow)`.
+- **Empresa (dark):** `linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018))`, borde `var(--line)`, hover elevate + borde violeta.
 
-### Chips / Badges
+### Chips / Badges (home)
 
 - `.chip-v8a`: fondo `primaryLight`, texto `primary`, borde `primary`.
 - `.chip-v7a`: fondo `#FEF3C7`, texto `#92400E`, borde `#F59E0B`.
@@ -186,15 +189,13 @@ La web separa los dos estilos en dos CSS:
 
 ## 8. Responsive
 
-| Breakpoint | Comportamiento |
+| Página | Comportamiento |
 |---|---|
-| `>960px` | Nav horizontal, grid de features 2-3 columnas |
-| `641–960px` | Nav horizontal, features 2 columnas |
-| `≤640px` | Menú hamburguesa, todo en columna, font-sizes reducidos |
+| Home (`styles.css`) | `>960px` nav horizontal · `≤640px` menú hamburguesa, todo en columna |
+| Empresa (`empresa.css`) | `>850px` links visibles · `≤850px` menú hamburguesa, logo-card al top, grids a 1 columna |
 
-- El logo en `.about-card` se apila verticalmente en móvil.
-- Los botones de descarga se apilan verticalmente en móvil.
-- El hero usa `flex-direction: column` en móvil.
+- El hero de la empresa usa `min-height:100vh` y en móvil el logo se muestra primero (`hero-logo{order:-1}`).
+- Los botones de descarga del home se apilan verticalmente en móvil.
 
 ---
 
@@ -202,10 +203,11 @@ La web separa los dos estilos en dos CSS:
 
 | Archivo | Contiene |
 |---|---|
-| `lib/theme.dart` | Paleta completa de la app Flutter (`AppTheme`) |
-| `assets/styles.css` | Paleta CSS + componentes de la web |
+| `lib/theme.dart` | Paleta completa de la app Flutter (`AppTheme`, teal) |
+| `assets/styles.css` | Paleta teal + componentes del home (`index.html`) |
+| `assets/empresa.css` | Paleta dark violeta + componentes de `empresa.html` |
 | `assets/icon.png` | Logo de la app |
-| `assets/logo-empresa.png` | Logo de la empresa (Elijos Tech) |
+| `assets/logo.png` | Logo de la empresa (blanco, transparente — de `~/Descargas/elijos_tech_web.zip`) |
 
 ---
 
